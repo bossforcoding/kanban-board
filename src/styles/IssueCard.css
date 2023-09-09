@@ -1,0 +1,48 @@
+.issue {
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    font-size: 16px;
+    color: #333333;
+    position: relative;
+    width: 91%;
+    margin-left: 5px;
+}
+
+.task::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #0000ff;
+}
+
+.bug::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #ff0000;
+}
+
+.userstory::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #00ff00;
+}
