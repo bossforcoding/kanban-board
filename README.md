@@ -1,73 +1,48 @@
-# kanban_board
-I realised a kanban board with React, a Javascript library, for a small university project. The kanban board has three main sections: TODO, IN_PROGESS, DONE. It allows the creation of new tasks divided into three categories:  TASK, BUG and USER STORY. Tasks can be filtered by title match or by category.
+# Kanban Board
 
-# Getting Started with Create React App
+A Kanban board built with React for a university project at SUPSI.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**[Live demo](https://bossforcoding.github.io/kanban-board/)**
 
-## Available Scripts
+![Kanban board screenshot](docs/screenshot.png)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Three columns: **TODO**, **IN_PROGRESS** and **DONE**, with drag and drop between them
+- Three issue types: **Task**, **Bug** and **User Story**, each with its own color
+- Multiple boards, with issues that can belong to more than one board
+- Search by title and filter by issue type
+- Two data modes:
+  - **Local**: issues are passed as props and persisted in `localStorage` (used by the demo)
+  - **Remote**: pass a `url` prop and the board reads and writes issues through a REST API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```jsx
+<MyBoard
+  id="board-id"
+  boards={[{ id: 1, name: 'Website' }]}
+  issues={[{ id: 1, title: 'Set up CI', type: 'TASK', status: 'TODO', boards: [1] }]}
+  search="true"
+  boardsEnabled="true"
+  onIssueClick={(issue) => console.log(issue)}
+/>
+```
 
-### `npm test`
+## Getting started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Requires Node.js 18 or later.
 
-### `npm run build`
+```bash
+npm install
+npm run dev      # start the dev server
+npm run build    # production build in dist/
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React 18 · Vite · CSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](LICENSE)
